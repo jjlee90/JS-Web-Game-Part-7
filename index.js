@@ -4,8 +4,35 @@ const pc = newPlayableCharacter(100, 110)
 // Create a non-playable character
 const npc = newNonPlayableCharacter(50, 300)
 
-// have the NPC start walking east immediately
-npc.walkEast()
+
+// **creating a function that'll allow the NPC to move one direction after another**
+// used while loop so npc will loop around inifiitely since i will always be less than 1
+async function moveNPC() {
+    let i = 0;
+    while (i < 1) {
+        await npc.walkNorth(1400)
+        await npc.walkEast(1200)
+        await npc.walkSouth(300)
+        await npc.walkEast(1500)
+        await npc.walkSouth(1500)
+        await npc.walkWest(2700)
+        await npc.walkNorth(400)
+    }
+}
+
+moveNPC()
+
+// tried creating a function that'll callback npc and loop but this didn't work...
+// function loopNPC(callback) {
+//     let i = 0;
+//     while (i < 1) {
+//         callback()
+//     }
+// }
+
+// loopNPC(moveNPC)
+
+
 
 // Create the inventory
 const inventory = newInventory()
